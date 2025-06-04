@@ -1,7 +1,7 @@
 Principais opções:
 
-Fore: para a cor do texto (ex: RED, GREEN, BLUE, YELLOW, MAGENTA, CYAN, WHITE, BLACK).
+Cores disponíveis: black, red, green, yellow, blue, magenta, cyan, white.
 
-Back: para a cor do fundo.
+Cores de fundo: prefixadas com on_ (ex: on_red, on_green).
 
-Style: para estilos como BRIGHT (brilhante), DIM (fosco) e NORMAL.
+Atributos (attrs): bold (negrito), dark, underline (sublinhado), blink (piscante), reverse, concealed.
