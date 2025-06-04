@@ -55,7 +55,7 @@ def exibe_matriz(matriz_desejada):
                 
 #iniciando o jogo
 print("Bem vindo ao jogo de Batalha Naval!!!!")
-print("Jogadores organizem suas frotas.")
+print("Jogadores organizem suas frotas.\n")
 
 #Fazendo o player adicionar 5 embarcacoes
 for embarcacao in range(0, 5):
@@ -69,7 +69,6 @@ for embarcacao in range(0, 5):
         coluna = int(input("Indique a COLUNA onde você deseja inserir uma embarcação: "))
         #Verificação para saber se o valor inserido é inválido
         coluna_invalida(coluna)
-        time.sleep(1)
         
         #adicionando uma embarcação (número 1) nas cordenadas inseridas    
         tabuleiro_player[linha - 1][coluna - 1] = 1
@@ -91,7 +90,6 @@ for embarcacao in range(0, 5):
             print("Você possui {} embarcações e seu tabuleiro atual é: ".format(embarcacoes_player1))
             exibe_matriz(tabuleiro_player)
             embarcacoes_player1 = 0
-        time.sleep(1)
 
 print()
 
@@ -113,11 +111,11 @@ for embarcacao_computador in range(0,5):
 
 #printando o tabuleiro do computador
     if embarcacoes_computador == 1:
-        print("\nO COMPUTADOR possui {} embarcação e seu tabuleiro atual é: ".format(embarcacoes_computador))
+        print("\nVocê possui {} embarcação e seu tabuleiro atual é: ".format(embarcacoes_computador))
         exibe_matriz(tabuleiro_computador)
             
     else:
-        print("\nO COMPUTADOR possui {} embarcações e seu tabuleiro atual é: ".format(embarcacoes_computador))
+        print("\nVocê possui {} embarcações e seu tabuleiro atual é: ".format(embarcacoes_computador))
         exibe_matriz(tabuleiro_computador)
         
     time.sleep(1.5)
@@ -170,6 +168,3 @@ elif tabuleiro_player[linha_atira][coluna_atira] == 1:
     embarcacoes_player1 -= 1
     print("\nSeu tabuleiro atual é: ")
     exibe_matriz(tabuleiro_player)
-
-    
-    
