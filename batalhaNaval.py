@@ -169,12 +169,17 @@ while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
     #Computador atirando
     linha_atira = random.randint(0,4)
     coluna_atira = random.randint(0,9)
+    
+    while tabuleiro_vazio1[linha_atira][coluna] == "x":
+        linha_atira = random.randint(1,5)
+        coluna_atira = random.randint(1,10)
+        
 
     print("O COMPUTADOR ESTÁ ATIRANDOOOOO!!!!!")
-    print("O computador vai atirar na LINHA: ", linha_atira)
+    print("O computador vai atirar na LINHA: ", linha_atira + 1) 
     enter = input("Pressione ENTER")
 
-    print("O computador quer atirar na COLUNA: ", coluna_atira)
+    print("O computador quer atirar na COLUNA: ", coluna_atira + 1)
     enter = input("Pressione ENTER")
 
     #Se o computador não derrubou nenhuma embarcação sua o bloco executado é:
@@ -191,7 +196,7 @@ while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
         print("\nO computador derrubou uma embarcação sua!")
         time.sleep(1)
         print("\nVocê possui {} embarcações!".format(embarcacoes_player1))
-        tabuleiro_vazio1[linha_atira][coluna_atira] = "x"
+        tabuleiro_vazio1[linha_atira - 1][coluna_atira - 1] = "x"
         enter = input("Pressione ENTER")
         
     if embarcacoes_computador == 0:
