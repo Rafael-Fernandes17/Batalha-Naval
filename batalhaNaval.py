@@ -129,15 +129,17 @@ for embarcacao_computador in range(0,5):
 #Player atirando
 print("\nA GUERRA COMEÇOU!!!!!!!!!!!!!!!!!!!!!")
 print()
-time.sleep(1)
+enter = input("Pressione ENTER")
 
-while embarcacoes_player1 != 0 and embarcacao_computador != 0:
+while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
     print("\nPlayer 1 - Esse é o seu tabuleiro:" )
     exibe_matriz(tabuleiro_vazio1)
     print("Você possui {} embarcações.".format(embarcacoes_player1))
+    time.sleep(3)
     print("\nTabuleiro do computador: ")
-    exibe_matriz(tabuleiro_vazio2)
+    exibe_matriz(tabuleiro_computador)
     print("O computador possui {} embarcações.".format(embarcacoes_computador))
+    enter = input("Pressione ENTER")
     
     print("\nPLAYER 1 ATIREEEEE!!!!")
     jogador_quer_acertar_linha = int(input("Player 1 - Escreva a LINHA de cordenada onde você quer atirar: "))
@@ -151,14 +153,16 @@ while embarcacoes_player1 != 0 and embarcacao_computador != 0:
         print("\nVocê não derrubou nenhuma embarcação!")
         print("O computador possui {} embarcações".format(embarcacoes_computador))
         tabuleiro_vazio2[jogador_quer_acertar_linha - 1][jogador_quer_acertar_coluna - 1] = "x"
+        enter = input("Pressione ENTER")
         print()
     
     #se derrubou ele faz isso  
     elif tabuleiro_computador[jogador_quer_acertar_linha - 1][jogador_quer_acertar_coluna - 1] == 1:
+        embarcacoes_computador -= 1
         print("\nVocê derrubou uma embarcação do computador!!!!")
         print("O computador possui {} embarcações".format(embarcacoes_computador))
         tabuleiro_vazio2[jogador_quer_acertar_linha - 1][jogador_quer_acertar_coluna - 1] = "x"
-        embarcacoes_computador -= 1
+        enter = input("Pressione ENTER")
         print()
         
         
@@ -168,10 +172,10 @@ while embarcacoes_player1 != 0 and embarcacao_computador != 0:
 
     print("O COMPUTADOR ESTÁ ATIRANDOOOOO!!!!!")
     print("O computador vai atirar na LINHA: ", linha_atira)
-    time.sleep(1)
+    enter = input("Pressione ENTER")
 
     print("O computador quer atirar na COLUNA: ", coluna_atira)
-    time.sleep(1)
+    enter = input("Pressione ENTER")
 
     #Se o computador não derrubou nenhuma embarcação sua o bloco executado é:
     if tabuleiro_player[linha_atira][coluna_atira] == 0:
@@ -179,15 +183,31 @@ while embarcacoes_player1 != 0 and embarcacao_computador != 0:
         time.sleep(1)
         print("\nVocê possui {} embarcações!".format(embarcacoes_player1))
         tabuleiro_vazio1[linha_atira][coluna_atira] = "x"
+        enter = input("Pressione ENTER")
         
     #Se ele derrubou o bloco executado é:   
     elif tabuleiro_player[linha_atira][coluna_atira] == 1:
+        embarcacoes_player1 -= 1
         print("\nO computador derrubou uma embarcação sua!")
         time.sleep(1)
         print("\nVocê possui {} embarcações!".format(embarcacoes_player1))
-        embarcacoes_player1 -= 1
         tabuleiro_vazio1[linha_atira][coluna_atira] = "x"
-    time.sleep(1)
-
+        enter = input("Pressione ENTER")
         
+    if embarcacoes_computador == 0:
+        print("\nO JOGADOR AFUNDOU A FROTA DO COMPUTADOR!!!!!!")
+        print("TEMOS UM NOVO CAPITÃO DOS MARES!!!")
+        print("O JOGADOR VENCEUUUUU!!!!!!")
+        print("\nPLACAR FINAL: ")
+        print("Embarcações do Player: {}. Embarcações do Computador {}.".format(embarcacoes_player1, embarcacoes_computador))
+        
+    elif embarcacoes_player1 == 0:
+        print("\nO JOGADOR AFUNDOU A FROTA DO COMPUTADOR!!!!!!")
+        print("TEMOS UM NOVO CAPITÃO DOS MARES!!!")
+        print("O JOGADOR VENCEUUUUU!!!!!!")
+        print("\nPLACAR FINAL: ")
+        print("Embarcações do Player: {}. Embarcações do Computador {}.".format(embarcacoes_player1, embarcacoes_computador))
+        
+    elif embarcacoes_player1 == 0 and embarcacao_computador == 0:
+        print("\nESSA GUERRA FOI SANGRENTA, NINGUÉM SOBREVIVEU")
         
