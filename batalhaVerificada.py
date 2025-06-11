@@ -95,33 +95,26 @@ def exibe_matriz(matriz_desejada, ocultar_navios=False):
             if celula == 0:
                 simbolo = emoji.emojize('🟦')
                 simbolo_colorido = colored(simbolo, 'cyan')
-            elif celula == 1 and ocultar_navios:
-                simbolo = emoji.emojize('🟦')
-                simbolo_colorido = colored(simbolo, 'cyan')
-            elif celula == 1 and not ocultar_navios:
+            elif celula == 1:
                 simbolo = emoji.emojize('🚢')
                 simbolo_colorido = colored(simbolo, 'green')
             elif celula == 'x':
-                if matriz_desejada == tabuleiro_vazio1 and tabuleiro_player[i][linha.index(celula)] == 1:
-                    simbolo = emoji.emojize('💥')
-                    simbolo_colorido = colored(simbolo, 'red')
-                elif matriz_desejada == tabuleiro_vazio2 and tabuleiro_computador[i][linha.index(celula)] == 1:
-                    simbolo = emoji.emojize('💥')
-                    simbolo_colorido = colored(simbolo, 'red')
-                else:
-                    simbolo = emoji.emojize('💦')
-                    simbolo_colorido = colored(simbolo, 'blue')
+                simbolo = emoji.emojize('💦')
+                simbolo_colorido = colored(simbolo, 'blue')
+            elif celula == 2:
+                simbolo = emoji.emojize('💥')
+                simbolo_colorido = colored(simbolo, 'red')
             print(simbolo_colorido, end=' ')
         print()
                 
                 
 #iniciando o jogo
-print(colored("******************************************", "green" , attrs=["dark", "bold"]))
-print(colored("* Bem vindo ao jogo de Batalha Naval!!!! *", "green" , attrs=["dark", "bold"]))
-print(colored("******************************************\n", "green" , attrs=["dark", "bold"]))
+print(colored("\n******************************************", "yellow"))
+print(colored("* Bem vindo ao jogo de Batalha Naval!!!! *", "yellow"))
+print(colored("******************************************\n", "yellow"))
 print(colored("JOGADORES, ORGANIZEM SUAS FROTAS!!!!!     \n", "green" , attrs=["dark", "bold"]))
 print()
-print(colored("JOGADOR 1:", "green" , attrs=["dark", "bold"]))
+print(colored("🧑 PLAYER 1:", "blue"))
 #Fazendo o player adicionar 5 embarcacoes
 while embarcacoes_player1 < 5:
     
@@ -194,7 +187,6 @@ while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
     exibe_matriz(tabuleiro_vazio1)
     print(colored("Você possui {} embarcações.".format(embarcacoes_player1), "magenta"))
     enter = input(colored("Pressione ENTER", "yellow"))
-    
     print(colored("\nTabuleiro do 🤖 computador: ", "red"))
     exibe_matriz(tabuleiro_vazio2)
     print(colored("O 🤖 computador possui {} embarcações.".format(embarcacoes_computador), "magenta"))
@@ -217,7 +209,7 @@ while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
         embarcacoes_computador -= 1
         print(colored("\nVocê derrubou uma embarcação do computador!!! 😎​", "green"))
         print(colored("O computador possui {} embarcações".format(embarcacoes_computador), "magenta"))
-        tabuleiro_vazio2[jogador_acertou_linha][jogador_acertou_coluna] = "x"
+        tabuleiro_vazio2[jogador_acertou_linha][jogador_acertou_coluna] = 2
         enter = input(colored("Pressione ENTER", "yellow"))
         print()
         
@@ -226,7 +218,7 @@ while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
     linha_atira = random.randint(0,4)
     coluna_atira = random.randint(0,9)
     
-    while tabuleiro_vazio1[linha_atira][coluna_atira] == "x":
+    while tabuleiro_vazio1[linha_atira][coluna_atira] == "x" or tabuleiro_vazio1[linha_atira][coluna_atira] == 2:
         linha_atira = random.randint(0,4)
         coluna_atira = random.randint(0,9)
         
@@ -249,23 +241,29 @@ while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
         embarcacoes_player1 -= 1
         print(colored("\nO 🤖 computador derrubou uma embarcação sua!", "white", attrs=["dark"]))
         print(colored("Você possui {} embarcações!".format(embarcacoes_player1), "blue"))
-        tabuleiro_vazio1[linha_atira][coluna_atira] = "x"
+        tabuleiro_vazio1[linha_atira][coluna_atira] = 2
         enter = input(colored("Pressione ENTER", "yellow"))
         
     if embarcacoes_computador == 0:
         print(colored("\nO 🧑 JOGADOR AFUNDOU A FROTA DO 🤖 COMPUTADOR!!!!!!", "green", attrs=["bold"]))
         print(colored("TEMOS UM NOVO CAPITÃO DOS MARES 🌊", "blue", attrs=["bold"]))
-        print(colored("O 🤖 COMPUTADOR VENCEUUUUU ​🏆​​", "red", attrs=["bold"]))
+        print(colored("O 🧑 JOGADOR VENCEUUUUU ​🏆​​", "red", attrs=["bold"]))
         print(colored("\nPLACAR FINAL: ", "yellow", attrs=["bold"]))
         print(colored("Embarcações do 🧑 Player: {}.Embarcações do 🤖 Computador {}.".format(embarcacoes_player1, embarcacoes_computador), "cyan", attrs=["bold"]))
         
     elif embarcacoes_player1 == 0:
         print(colored("\nO 🤖 COMPUTADOR AFUNDOU A FROTA DO 🧑 JOGADOR!!!!!!", "green", attrs=["bold"]))
         print(colored("TEMOS UM NOVO CAPITÃO DOS MARES 🌊", "blue", attrs=["dark", "bold"]))
-        print(colored("O 🧑 JOGADOR VENCEUUUUU 🏆", "blue", attrs=["bold"]))
+        print(colored("O 🤖 COMPUTADOR VENCEUUUUU 🏆", "blue", attrs=["bold"]))
         print(colored("\nPLACAR FINAL: ", "yellow", attrs=["bold"]))
         print(colored("Embarcações do 🧑 Player: {}.Embarcações do 🤖 Computador {}.".format(embarcacoes_player1, embarcacoes_computador), "cyan", attrs=["bold"]))
         
-    elif embarcacoes_player1 == 0 and embarcacao_computador == 0:
-        print(colored("\nESSA GUERRA FOI SANGRENTA, NINGUÉM SOBREVIVEU", "grey", attrs=["bold"]))
+    elif embarcacoes_player1 == 0 and embarcacoes_computador == 0:
+        print(colored("\nESSA GUERRA FOI SANGRENTA, NINGUÉM SOBREVIVEU!", "grey", attrs=["bold"]))
+    
+    print(colored("************************************************************************", "green", attrs=["bold"]))
+    print(colored("* Obrigado por participar do nosso jogo 😁                             *", "green", attrs=["bold"]))
+    print(colored("* Alunos: Felipe Bresciani, Pedro Henrique Junqueira e Rafael Eliezer. *", "green", attrs=["bold"]))
+    print(colored("************************************************************************\n", "green", attrs=["bold"]))
+    
         
