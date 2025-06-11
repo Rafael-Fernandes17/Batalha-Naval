@@ -41,7 +41,7 @@ embarcacoes_computador = 0
 
 #Criando as Def's
 
-# verificação para saber se o valor inserido na linha é inválido
+# verificação para saber se a LINHA onde o jogador quer inserir uma embarcação é válida
 def linha_invalida():
     while True:
         entrada = input(colored("\nIndique a LINHA onde você deseja inserir uma embarcação: ", "cyan"))
@@ -51,17 +51,7 @@ def linha_invalida():
                 return linha
         print(colored("❌ Opção inválida", "red", attrs=['bold']))
         
-# verificacao da linha que o jogador que atirar       
-def jogador_quer_acertar_linha():
-    while True:
-        entrada = input(colored("🧑 Player 1 - Escreva a LINHA de cordenada onde você quer atirar: ", "grey"))
-        if entrada.isdigit():
-            linha = int(entrada)
-            if linha in [1, 2, 3, 4, 5]:
-                return linha
-        print(colored("❌ Opção inválida", "red", attrs=['bold']))
-
-# verificação para saber se o valor inserido na coluna é inválido
+# verificação para saber se a COLUNA onde o jogador quer inserir uma embarcação é válida
 def coluna_invalida():
     while True:
         entrada = input(colored("Indique a COLUNA onde você deseja inserir uma embarcação: ", "blue"))
@@ -71,7 +61,18 @@ def coluna_invalida():
                 return coluna
         print(colored("❌ Opção inválida", "red", attrs=['bold']))
         
-# verificação da coluna que o jogador quer acertar
+# verificacao da LINHA que o jogador que atirar é válida  
+def jogador_quer_acertar_linha():
+    while True:
+        entrada = input(colored("🧑 Player 1 - Escreva a LINHA de cordenada onde você quer atirar: ", "grey"))
+        if entrada.isdigit():
+            linha = int(entrada)
+            if linha in [1, 2, 3, 4, 5]:
+                return linha
+        print(colored("❌ Opção inválida", "red", attrs=['bold']))
+
+
+# verificação da COLUNA que o jogador quer acertar é válida
 def jogador_quer_acertar_coluna():
     while True:
         entrada = input(colored("🧑 Player 1 - Escreva a  COLUNA de cordenada onde você quer atirar: ", "grey"))
@@ -82,8 +83,8 @@ def jogador_quer_acertar_coluna():
         print(colored("❌ Opção inválida", "red", attrs=['bold']))
 
 
-#Printa qualquer matriz que for adicionada como parametro          
-def exibe_matriz(matriz_desejada, ocultar_navios=False):
+#Verifica o número em cada posição e PRINTA, NÃO DEFINE, um simbolo correspondente       
+def exibe_matriz(matriz_desejada):
     print('   ', end='')
     for i in range(1, 11):
         print(f'{i:2}', end=' ')
@@ -115,6 +116,7 @@ print(colored("******************************************\n", "yellow"))
 print(colored("JOGADORES, ORGANIZEM SUAS FROTAS!!!!!     \n", "green" , attrs=["dark", "bold"]))
 print()
 print(colored("🧑 PLAYER 1:", "blue"))
+
 #Fazendo o player adicionar 5 embarcacoes
 while embarcacoes_player1 < 5:
     
