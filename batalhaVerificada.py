@@ -241,7 +241,7 @@ while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
     #Se ele derrubou o bloco executado é:   
     elif tabuleiro_player[linha_atira][coluna_atira] == 1:
         embarcacoes_player1 -= 1
-        print(colored("\nO 🤖 computador derrubou uma embarcação sua!", "white", attrs=["dark"]))
+        print(colored("\nO 🤖 computador derrubou uma embarcação sua!", "green"))
         print(colored("Você possui {} embarcações!".format(embarcacoes_player1), "blue"))
         tabuleiro_vazio1[linha_atira][coluna_atira] = 2
         enter = input(colored("Pressione ENTER", "yellow"))
@@ -251,21 +251,19 @@ while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
         print(colored("TEMOS UM NOVO CAPITÃO DOS MARES 🌊", "blue", attrs=["bold"]))
         print(colored("O 🧑 JOGADOR VENCEUUUUU ​🏆​​", "red", attrs=["bold"]))
         print(colored("\nPLACAR FINAL: ", "yellow", attrs=["bold"]))
-        print(colored("Embarcações do 🧑 Player: {}.Embarcações do 🤖 Computador {}.".format(embarcacoes_player1, embarcacoes_computador), "cyan", attrs=["bold"]))
+        print(colored("Embarcações do 🧑 Player: {}. Embarcações do 🤖 Computador {}.".format(embarcacoes_player1, embarcacoes_computador), "cyan", attrs=["bold"]))
         
     elif embarcacoes_player1 == 0:
         print(colored("\nO 🤖 COMPUTADOR AFUNDOU A FROTA DO 🧑 JOGADOR!!!!!!", "green", attrs=["bold"]))
         print(colored("TEMOS UM NOVO CAPITÃO DOS MARES 🌊", "blue", attrs=["dark", "bold"]))
         print(colored("O 🤖 COMPUTADOR VENCEUUUUU 🏆", "blue", attrs=["bold"]))
         print(colored("\nPLACAR FINAL: ", "yellow", attrs=["bold"]))
-        print(colored("Embarcações do 🧑 Player: {}.Embarcações do 🤖 Computador {}.".format(embarcacoes_player1, embarcacoes_computador), "cyan", attrs=["bold"]))
+        print(colored("Embarcações do 🧑 Player: {}. Embarcações do 🤖 Computador {}.".format(embarcacoes_player1, embarcacoes_computador), "cyan", attrs=["bold"]))
         
     elif embarcacoes_player1 == 0 and embarcacoes_computador == 0:
         print(colored("\nESSA GUERRA FOI SANGRENTA, NINGUÉM SOBREVIVEU!", "grey", attrs=["bold"]))
     
-    print(colored("************************************************************************", "green", attrs=["bold"]))
-    print(colored("* Obrigado por participar do nosso jogo 😁                             *", "green", attrs=["bold"]))
-    print(colored("* Alunos: Felipe Bresciani, Pedro Henrique Junqueira e Rafael Eliezer. *", "green", attrs=["bold"]))
-    print(colored("************************************************************************\n", "green", attrs=["bold"]))
-    
-        
+print(colored("************************************************************************", "green", attrs=["bold"]))
+print(colored("* Obrigado por participar do nosso jogo 😁                             *", "green", attrs=["bold"]))
+print(colored("* Alunos: Felipe Bresciani, Pedro Henrique Junqueira e Rafael Eliezer. *", "green", attrs=["bold"]))
+print(colored("************************************************************************\n", "green", attrs=["bold"]))
