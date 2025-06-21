@@ -1,3 +1,6 @@
+#Se o seu jogo aparecer um erro como: "import emoji ModuleNotFoundError: No module named 'emoji'"
+#Execute esse comando: "./run.sh"
+
 import random
 import time
 import emoji
