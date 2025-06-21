@@ -198,6 +198,11 @@ while embarcacoes_player1 != 0 and embarcacoes_computador != 0:
     jogador_acertou_linha = jogador_quer_acertar_linha() - 1
     jogador_acertou_coluna = jogador_quer_acertar_coluna() - 1
     
+    while tabuleiro_vazio2[jogador_acertou_linha][jogador_acertou_coluna] == "x" or tabuleiro_vazio2[jogador_acertou_linha][jogador_acertou_coluna] == 2:
+        print(colored("\nVOCÊ JÁ ATIROU NESSA POSIÇÃO. DIGITE NOVAMENTE", "red", attrs=["bold"]))
+        jogador_acertou_linha = jogador_quer_acertar_linha() - 1
+        jogador_acertou_coluna = jogador_quer_acertar_coluna() - 1  
+    
     #Se não derrubou nenhuma embarcação do computador ele faz isso
     if tabuleiro_computador [jogador_acertou_linha][jogador_acertou_coluna] == 0:
         print(colored("\nVocê não derrubou nenhuma embarcação! 😞", "red"))
